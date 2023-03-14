@@ -1,0 +1,4 @@
+/packages/**
+/CsharpTesting/bin/**
+/CsharpTesting/obj/**
+/.vs/**
