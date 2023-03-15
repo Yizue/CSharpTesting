@@ -60,7 +60,7 @@ namespace CSharpTesting.NUnitTests
 
             d = outResult(d, out outVar);
 
-            // Double AreEqual will not work, use overloaded third argument to passin EPSILON difference precision double is 15 digits
+            // Double AreEqual will not work, use overloaded third argument to passing EPSILON difference precision double is 15 digits
             Assert.AreEqual(1.4d, d, 0.000000000000001);
             Assert.AreEqual(14.8d, outVar, 0.000000000000001); // outVar has value passed back by outResult Method
             // Similarly, double equality == will not work for similar reasons

@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using NUnit.Framework;
 
-namespace CSharpTesting
+namespace CSharpTesting.NUnitTests
 {
+    [TestFixture]
     public class LeetCode
     {
         public static string FizzBuzz(int endNum)
@@ -145,6 +147,77 @@ namespace CSharpTesting
             }
 
             return count;
+        }
+
+        public string LongestCommonPrefix(string[] strs)
+        {
+            if (strs.Length == 0)
+                return "";
+            if (strs.Length == 1)
+                return strs[0];
+
+            string b = strs[0];
+            if (b.Length == 0)
+            {
+                return "";
+            }
+
+            int count = Math.Max(b.Length, 0);
+
+            for (int i = 1; i < strs.Length; i++)
+            {
+                if (strs[i].Length == 0)
+                {
+                    count = 0;
+                    break;
+                }
+                count = Math.Min(count, strs[i].Length);
+                for (int j = 0; j <= count; j++)
+                {
+                    if (strs[i][j] != b[j])
+                    {
+                        count = j;
+                        break;
+                    }
+                }
+                if (count == 0) break;
+            }
+            if (count == 0) return "";
+            return b.Substring(0, count);
+        }
+
+        public int[] TwoSum(int[] nums, int target)
+        {
+            int[] sol = { 0, 1 };
+            
+            for (int i = 0; i < nums.Length; i++)
+            {
+                for (int j = 0; j < nums.Length; j++)
+                {
+                    if (i != j)
+                    {
+                        if (nums[i] + nums[j] == target)
+                        {
+                            sol[0] = i;
+                            sol[1] = j;
+                            return sol;
+                        }
+                    }
+                }
+            }
+
+            return sol;
+        }
+
+        [Test]
+        public void LeetCodeTester()
+        {
+            //string[] sArr = { "flower", "flow", "flight" };
+            string[] sArr = { "ab", "a" };
+
+            string sol = LongestCommonPrefix(sArr);
+
+            //Assert.AreEqual("", sol);
         }
     }
 }

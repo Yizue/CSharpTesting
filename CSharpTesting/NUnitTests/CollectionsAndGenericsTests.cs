@@ -48,10 +48,16 @@ namespace CSharpTesting.NUnitTests
 
             Assert.AreEqual(3, names.Count);
             Assert.AreEqual(2, names.FindIndex(x => x.Contains("mal"))); // Pass anonymous function -> Predicate for this method
+
+            names.Sort((a, b) => a.CompareTo(b)); // ascending order, flip the compare to b -> a for descending
+
+            Assert.AreEqual("Sonoo", names[0]);
+            Assert.AreEqual("Steve", names[1]);
         }
 
         //C# HashSet class can be used to store, remove or view elements. It does not store duplicate elements.
         //It is suggested to use HashSet class if you have to store only unique elements. 
+        // ALT: SortedSet<> for instances when you want the set to be sorted (always ascending order)
         [Test]
         public void UsingHashSet()
         {
