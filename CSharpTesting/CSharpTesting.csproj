@@ -61,9 +61,11 @@
     <Compile Include="NUnitTests\CollectionsAndGenericsTests.cs" />
     <Compile Include="NUnitTests\DelegatesReflectionAnonFuncsTests.cs" />
     <Compile Include="NUnitTests\ExceptionHandlingTests.cs" />
+    <Compile Include="NUnitTests\LeetCode.cs" />
     <Compile Include="NUnitTests\InheritancePolymorphismAbstractionTests.cs" />
     <Compile Include="NUnitTests\InterviewQuestionsTests.cs" />
     <Compile Include="NUnitTests\ObjectsAndClassesTests.cs" />
+    <Compile Include="NUnitTests\RegexTests.cs" />
     <Compile Include="NUnitTests\VarsDataTypesOperatorFunctionTests.cs" />
     <Compile Include="SeleniumTests\IntroSelenium.cs" />
     <Compile Include="Program.cs" />
