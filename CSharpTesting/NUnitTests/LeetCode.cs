@@ -209,6 +209,36 @@ namespace CSharpTesting.NUnitTests
             return sol;
         }
 
+        public int MajorityElement(int[] nums)
+        {
+            HashSet<int> unique = new HashSet<int>();
+
+            foreach (int i in nums)
+                unique.Add(i);
+
+            Dictionary<int, int> counts = new Dictionary<int, int>();
+
+            foreach (int j in unique)
+                counts.Add(j, 0);
+
+            foreach (int k in nums)
+                counts[k]++;
+
+            int majority = nums[0];
+            int cutoff = Convert.ToInt32(Math.Ceiling(nums.Length/2.0));
+
+            foreach (int l in unique)
+            {
+                if (counts[l] >= cutoff)
+                {
+                    majority = l;
+                    break;
+                }
+            }
+
+            return majority;
+        }
+
         [Test]
         public void LeetCodeTester()
         {
