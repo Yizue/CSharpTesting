@@ -115,9 +115,16 @@ sealed public class Species
         }
         public class Circle : Drawable // This class is implementing Drawable, it must have all the methods that interface specifies
         {
+            private int Radius { get; set; }
+
+            public Circle(int radius)
+            {
+                this.Radius = radius;
+            }
+
             public string draw()
             {
-                return "Drew Circle";
+                return "Drew Circle of radius: " + Radius;
             }
         }
 
@@ -155,10 +162,12 @@ sealed public class Species
         public void UsingAbstractionDerivedClasses()
         {
             Shape s1 = new Rectangle();
-            Drawable s2 = new Circle(); 
+            Drawable s2 = new Circle(6); 
 
             Assert.AreEqual("Drew Rectangle", s1.draw());
-            Assert.AreEqual("Drew Circle", s2.draw());
+            Assert.AreEqual("Drew Circle of radius: 6", s2.draw());
+
+            //Assert.AreEqual(6, s2.Radius); Since s2 is type drawable, not Circle, cant access Radius directly
         }
     }
 }

@@ -239,15 +239,74 @@ namespace CSharpTesting.NUnitTests
             return majority;
         }
 
+        public bool IsValidParenthesis(string s)
+        {
+            Stack<char> st = new Stack<char>();
+
+            if (s.Length == 0) return true;
+            foreach (var ch in s)
+            {
+                if (ch == '(' || ch == '[' || ch == '{')
+                {
+                    st.Push(ch);
+                }
+                else
+                {
+                    char expectedOpenBracket;
+                    try
+                    {
+                        expectedOpenBracket = st.Pop();
+                    }
+                    catch (Exception e)
+                    {
+                        return false;
+                    }
+
+                    if (expectedOpenBracket == '(' && ch == ')')
+                    {
+                        continue;
+                    }
+                    else if (expectedOpenBracket == '[' && ch == ']')
+                    {
+                        continue;
+                    }
+                    else if (expectedOpenBracket == '{' && ch == '}')
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            if (st.Count > 0) return false;
+            return true;
+        }
+
+        public int StrStr(string haystack, string needle)
+        {
+            var match = Regex.Match(haystack, needle);
+            if (match.Success) return match.Index;
+            return -1;
+        }
+
+        public bool IsPowerOfThree(int n)
+        {
+            if (n <= 0) return false;
+            var exp = Math.Log(n, 3);
+            var res = Math.Abs(Math.Round(exp) - exp);
+            return res < 0.00000000000001 ? true : false;
+        }
+
         [Test]
         public void LeetCodeTester()
         {
-            //string[] sArr = { "flower", "flow", "flight" };
-            string[] sArr = { "ab", "a" };
-
-            string sol = LongestCommonPrefix(sArr);
-
-            //Assert.AreEqual("", sol);
+            var x = IsPowerOfThree(59049);
+            var y = IsPowerOfThree(45);
+            Assert.AreEqual(true, x);
+            Assert.AreEqual(false, y);
         }
     }
 }

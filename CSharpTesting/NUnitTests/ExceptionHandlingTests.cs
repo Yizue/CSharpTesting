@@ -27,7 +27,7 @@ namespace CSharpTesting.NUnitTests
             Assert.AreEqual(true, finallyExecuted);
         }
 
-        // Defining amcustom exception, inherit relevant Exception (or one of its child) class
+        // Defining a custom exception, inherit relevant Exception (or one of its child) class
         public class InvalidAgeException : Exception
         {
             public InvalidAgeException(String message)
@@ -47,7 +47,7 @@ namespace CSharpTesting.NUnitTests
         {
             try
             {
-                validate(18);
+                validate(17);
             }
             catch (Exception e) { 
                 Assert.AreEqual(true, e is InvalidAgeException);

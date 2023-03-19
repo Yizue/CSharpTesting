@@ -55,7 +55,7 @@ namespace CSharpTesting.NUnitTests
             Assert.AreEqual(false, reg1.IsMatch("Hello World"));
             Assert.AreEqual(true, reg2.IsMatch("Hello World"));
 
-            // NOTE: Use @ at front to allow usage of \ without escaping it
+            // NOTE: Use @ at front to allow usage of special characters without having to escaping it
             Regex reg3 = new Regex(@"[\s]*"); // [\s] whitespace, * denotes presence of any amount of preceding char INCLUDING 0
             Regex reg4 = new Regex(@"[\d]+[\w]{5}"); // [\d] numerals, [\w] alphanumerics and _,
                                                      // + denotes 1 or more of preceding char, {n} denotes exactly n times of preceding char
