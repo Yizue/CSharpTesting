@@ -1,14 +1,8 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace CSharpTesting
 {
@@ -35,7 +29,7 @@ namespace CSharpTesting
             driver.Manage().Window.Maximize();
 
             // Wait setup: 
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(4));
+            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
             IWebElement firstResult = wait.Until(e => e.FindElement(By.CssSelector("input[name='q']")));
 
             // Alternatively:
@@ -43,11 +37,11 @@ namespace CSharpTesting
 
             IWebElement searchBar = driver.FindElement(By.CssSelector("input[name='q']")); // Find element <input> with attributes name=q
                                                                                          //[name^=q] - starts with q, [name$=q] - ends with q, [name*=q] - contains q
-            searchBar.SendKeys("javatpoint tutorials"); // Enters text to applicable element i.e. text boxes, can clear the text box using Clear() method
+            searchBar.SendKeys("javatpoint tutorials" + Keys.Enter); // Enters text to applicable element i.e. text boxes, can clear the text box using Clear() method
 
             //IWebElement searchButton = driver.FindElement(By.CssSelector("input[name^=btnK]"));
-            IWebElement searchButton = driver.FindElement(By.Name("btnK")); // Using inbuilt searcher methods
-            searchButton.Click();
+            //IWebElement searchButton = driver.FindElement(By.Name("btnK")); // Using inbuilt searcher methods
+            //searchButton.Click();
 
             IWebElement javatpointLink = driver.FindElement(By.CssSelector("a[href*='www.javatpoint.com']")); //%2F&usg=
             javatpointLink.Click();

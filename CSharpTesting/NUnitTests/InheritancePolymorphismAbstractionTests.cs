@@ -1,10 +1,5 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium.DevTools.V108.DOM;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 /*
  * C# Namespaces
@@ -52,7 +47,7 @@ namespace CSharpTesting.NUnitTests
 
             public virtual string eat(string val) { return val + " eaten"; } // Virtual method, to be overriden in base class
         }
-        public class Dog : Animal // Inheritance - inherits the parent's mthods and fields
+        public class Dog : Animal // Inheritance - inherits the parent's methods and fields
         {
             public string Color; // Child and Parent has same named field, use base keyword to access parent's specifically (super in js)
             public Dog(string n, string c) // Child's constructor internally invokes the parent's constructor
@@ -75,7 +70,7 @@ namespace CSharpTesting.NUnitTests
          * If you create a sealed class, it cannot be derived. If you create a sealed method, it cannot be overridden.
          * Note: Structs are implicitly sealed therefore they can't be inherited.
          */
-sealed public class Species
+        sealed public class Species
         {
             public void eat() { Console.WriteLine("eating..."); }
         }

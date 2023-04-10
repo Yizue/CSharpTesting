@@ -1,11 +1,7 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium.DevTools.V108.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static CSharpTesting.NUnitTests.ExceptionHandlingTests;
 
 namespace CSharpTesting.NUnitTests
 {
@@ -37,7 +33,7 @@ namespace CSharpTesting.NUnitTests
         {
             var names = new List<string>() {"Sonoo", "Vimal"}; // Initializing block
             names.Add("Irfan");
-            names.Insert(0, "Steve"); // Insert into a given index
+            names.Insert(0, "Steve"); // Insert into a given index - here to the beginning
             names.Remove("Irfan"); // Remove first occurrence of given item
 
             // Iterate through the list.  

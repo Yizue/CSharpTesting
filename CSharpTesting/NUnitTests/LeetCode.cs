@@ -23,7 +23,7 @@ namespace CSharpTesting.NUnitTests
                 else if (i % 5 == 0)
                     s.Append("buzz" + " ");
                 else
-                    s.Append(i.ToString());
+                    s.Append(i);
             }
 
             return s.ToString();
@@ -46,6 +46,38 @@ namespace CSharpTesting.NUnitTests
             }
 
             return s;
+        }
+
+        public IList<string> FizzBuzzListAlt1(int n)
+        {
+            List<string> s = new List<string>();
+
+            s = Enumerable.Range(1, n).Select(i => (i % 3 == 0 && i % 5 == 0 ? "FizzBuzz" : i % 3 == 0 ? "Fizz" : i % 5 == 0 ? "Buzz" : i.ToString())).ToList();
+
+            return s;
+        }
+
+        // Extendable solution
+        public IList<string> FizzBuzzListMap(int n)
+        {
+            var map = new Dictionary<int, string>
+            {
+                //{3*5*7, "FizzBuzzWoof"}, // Optional
+                //{5*7, "BuzzWoof"}, // Optional
+                //{3*7, "FizzWoof"}, // Optional
+                {3*5, "FizzBuzz"},
+                //{7, "Woof"},
+                {5, "Buzz"},
+                {3, "Fizz"},
+                {1, null} // For all numbers not evenly divisible
+            };
+
+            var words = Enumerable
+                .Range(1, n)
+                .Select(i => (map[map.Keys.First(k => i % k == 0)]) ?? i.ToString());
+
+            // string.Join(' ', words).Dump("Result");
+            return words.ToList();         
         }
 
         public bool IsPalindrome(string s)

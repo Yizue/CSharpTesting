@@ -1,9 +1,5 @@
 ﻿using NUnit.Framework;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSharpTesting.NUnitTests
 {
@@ -21,7 +17,7 @@ namespace CSharpTesting.NUnitTests
                 int b = 0;
                 int x = a / b;
             }
-            catch (Exception e) { Assert.AreEqual(true, e is System.DivideByZeroException); } // Catched exceptions go into e
+            catch (Exception e) { Assert.AreEqual(true, e is DivideByZeroException); } // Catched exceptions go into e
             finally { finallyExecuted = true; } // Always executed
 
             Assert.AreEqual(true, finallyExecuted);

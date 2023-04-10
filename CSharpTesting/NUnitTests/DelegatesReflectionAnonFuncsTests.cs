@@ -53,7 +53,7 @@ namespace CSharpTesting.NUnitTests
 
             Assert.AreEqual("System.Int32", typeA.ToString());
 
-            Type typeStr = typeof(System.String);
+            Type typeStr = typeof(string);
             Assert.AreEqual("System.String", typeStr.FullName);
             Assert.AreEqual("System.Object", typeStr.BaseType.FullName); // Parent Class, returns Type
             Assert.AreEqual(true, typeStr.IsClass);
